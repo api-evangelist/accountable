@@ -1,0 +1,100 @@
+# Accountable
+
+## Accountable
+
+- [Introduction](https://docs.accountable.capital/accountable-documentation/introduction.md): Prove financial health. Privately.
+- [Data Verification Network (DVN)](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn.md): A verifiable trust layer that reduces counterparty risk
+- [Getting Started](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/getting-started.md): Onboarding guide
+- [Nodes](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/nodes.md)
+- [Connectors](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/connectors.md)
+- [Data Sharing within the Network](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/data-sharing-within-the-network.md)
+- [Public Dashboard Data Model (Nitro)](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/public-dashboard-data-model-nitro.md)
+- [Public Dashboard Data Model (SEV)](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/public-dashboard-data-model-sev.md)
+- [Public Dashboard Data Model (SEV - Yuzu)](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/public-dashboard-data-model-sev-yuzu.md)
+- [Portfolio Report Data Model](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/portfolio-report-data-model.md)
+- [NAV Feeds](https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/nav-feeds.md)
+- [Vault-as-a-Service (VaaS)](https://docs.accountable.capital/accountable-documentation/readme.md)
+- [Getting Started](https://docs.accountable.capital/accountable-documentation/readme/getting-started.md): Accountable Vaults adapt to your role - whether you manage, borrow, or supply capital.
+- [Phase 1: Create the Vault](https://docs.accountable.capital/accountable-documentation/readme/getting-started/quickstart.md): Only whitelisted Vault Managers can create vaults.
+- [Vault Type](https://docs.accountable.capital/accountable-documentation/readme/getting-started/quickstart/vault-type.md)
+- [Verifiability](https://docs.accountable.capital/accountable-documentation/readme/getting-started/quickstart/verifiability.md)
+- [Whitelisting & KYC](https://docs.accountable.capital/accountable-documentation/readme/getting-started/quickstart/whitelisting-and-kyc.md)
+- [Vault Details](https://docs.accountable.capital/accountable-documentation/readme/getting-started/quickstart/vault-details.md)
+- [Company & Strategy](https://docs.accountable.capital/accountable-documentation/readme/getting-started/quickstart/company-and-strategy.md)
+- [Review & Deploy](https://docs.accountable.capital/accountable-documentation/readme/getting-started/quickstart/review-and-deploy.md)
+- [Configure Terms and Parameters](https://docs.accountable.capital/accountable-documentation/readme/getting-started/quickstart/configure-terms-and-parameters.md): Fine-tune the economic terms of your vault.
+- [Phase 2: Interact with the Vault](https://docs.accountable.capital/accountable-documentation/readme/getting-started/phase-2-interact-with-the-vault.md)
+- [For Vault Managers](https://docs.accountable.capital/accountable-documentation/readme/getting-started/phase-2-interact-with-the-vault/for-vault-managers.md)
+- [For Borrowers](https://docs.accountable.capital/accountable-documentation/readme/getting-started/phase-2-interact-with-the-vault/for-borrowers.md)
+- [For Lenders](https://docs.accountable.capital/accountable-documentation/readme/getting-started/phase-2-interact-with-the-vault/for-lenders.md)
+- [Architecture Overview](https://docs.accountable.capital/accountable-documentation/readme/architecture-overview.md)
+- [Accountable Asynchronous Vault](https://docs.accountable.capital/accountable-documentation/readme/accountable-asynchronous-vault.md)
+- [Accountable Withdrawal Queue](https://docs.accountable.capital/accountable-documentation/readme/accountable-withdrawal-queue.md)
+- [Accountable Fixed Term](https://docs.accountable.capital/accountable-documentation/readme/accountable-fixed-term.md)
+- [Accountable Open Term](https://docs.accountable.capital/accountable-documentation/readme/accountable-open-term.md)
+- [Accountable Yield](https://docs.accountable.capital/accountable-documentation/readme/accountable-yield.md)
+- [YieldApp Integration](https://docs.accountable.capital/accountable-documentation/readme/yieldapp-integration.md)
+- [Audits](https://docs.accountable.capital/accountable-documentation/readme/audits.md): Listed below are audits carried out for Accountable by multiple parties.
+- [Vault-as-a-Service (VaaS)](https://docs.accountable.capital/accountable-documentation/vault-as-a-service.md): Build financial products onchain, with proof at the core
+- [Getting Started](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started.md): Accountable Vaults adapt to your role - whether you manage, borrow, or supply capital.
+- [Phase 1: Create the Vault](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/quickstart.md): Only Vault Managers whitelisted by Accountable can create vaults.
+- [Vault Type](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/quickstart/vault-type.md): Tailor the Right Vault Structure for Your Needs
+- [Verifiability](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/quickstart/verifiability.md): Build Trust Through Transparent Verification
+- [Whitelisting & KYC](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/quickstart/whitelisting-and-kyc.md): Managing Regulatory Compliance and Security
+- [Vault Details](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/quickstart/vault-details.md): Configure Your Vault's Core Parameters
+- [Company & Strategy](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/quickstart/company-and-strategy.md): Tell users more about yourself
+- [Review & Deploy Your Vault](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/quickstart/review-and-deploy-your-vault.md)
+- [Configure Terms and Parameters](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/quickstart/configure-terms-and-parameters.md): Fine-tune the Economic Terms of Your Vault
+- [Phase 2: Interact with the Vault](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/phase-2-interact-with-the-vault.md)
+- [For Vault Managers](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/phase-2-interact-with-the-vault/for-vault-managers.md)
+- [For Borrowers](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/phase-2-interact-with-the-vault/for-borrowers.md)
+- [For Lenders](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/getting-started/phase-2-interact-with-the-vault/for-lenders.md)
+- [Architecture Overview](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/architecture-overview.md)
+- [Accountable Asynchronous Vault](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/accountable-asynchronous-vault.md)
+- [Accountable Withdrawal Queue](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/accountable-withdrawal-queue.md)
+- [Deposit gateway](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/deposit-gateway.md)
+- [Accountable Fixed Term](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/accountable-fixed-term.md)
+- [Accountable Open Term](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/accountable-open-term.md)
+- [Accountable NAV](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/accountable-nav.md)
+- [YieldApp Integration](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/yieldapp-integration.md)
+- [Audits](https://docs.accountable.capital/accountable-documentation/vault-as-a-service/audits.md): Listed below are audits carried out for Accountable by multiple parties.
+- [YieldApp](https://docs.accountable.capital/accountable-documentation/yieldapp.md): A premium marketplace for yield you don’t have to guess on
+- [Getting Started](https://docs.accountable.capital/accountable-documentation/yieldapp/getting-started.md)
+- [Capital Allocator Guide](https://docs.accountable.capital/accountable-documentation/yieldapp/capital-allocator-guide.md): This guide will detail how to navigate Accountable's YieldApp, explore verified yield-focused opportunities, and interact with vaults.
+- [Opportunities](https://docs.accountable.capital/accountable-documentation/yieldapp/opportunities.md)
+- [ACC Points](https://docs.accountable.capital/accountable-documentation/yieldapp/acc-points.md)
+- [Multipliers](https://docs.accountable.capital/accountable-documentation/yieldapp/acc-points/multipliers.md)
+- [FAQ](https://docs.accountable.capital/accountable-documentation/yieldapp/acc-points/faq.md)
+- [YieldApp FAQs](https://docs.accountable.capital/accountable-documentation/yieldapp/yieldapp-faqs.md)
+- [Core Components](https://docs.accountable.capital/accountable-documentation/yieldapp/core-components.md)
+- [Accountable NAV](https://docs.accountable.capital/accountable-documentation/accountable-nav.md): Net asset value backed by cryptographic proofs
+- [Accountable Ledger](https://docs.accountable.capital/accountable-documentation/accountable-ledger.md): Deterministic financial truth reconstructed from raw data
+- [Proof of Solvency](https://docs.accountable.capital/accountable-documentation/proof-of-solvency.md)
+- [Glossary](https://docs.accountable.capital/glossary.md): Accountable Terms Description
+- [Accountable Tutorials](https://docs.accountable.capital/accountable-tutorials.md)
+- [Getting Started with YieldApp](https://docs.accountable.capital/accountable-tutorials/getting-started-with-yieldapp.md): Connect Wallet and start exploring Verifiable Yield Opportunities
+- [Vault Manager/Curator Scenario](https://docs.accountable.capital/accountable-tutorials/vault-manager-curator-scenario.md): Connect to the app, create and deploy your first vault
+- [Vault Manager/Borrower](https://docs.accountable.capital/accountable-tutorials/vault-manager-borrower.md): Connect to the app, create and deploy your first vault
+- [Publish](https://docs.accountable.capital/sections-gitbook/editor.md)
+- [Markdown](https://docs.accountable.capital/sections-gitbook/markdown.md)
+- [Images & media](https://docs.accountable.capital/sections-gitbook/images-and-media.md)
+- [Interactive blocks](https://docs.accountable.capital/sections-gitbook/interactive-blocks.md)
+- [OpenAPI](https://docs.accountable.capital/sections-gitbook/openapi.md)
+- [Integrations](https://docs.accountable.capital/sections-gitbook/integrations.md)
+- [publish](https://docs.accountable.capital/sections-gitbook/publish-your-docs.md)
+
+
+---
+
+# Agent Instructions
+This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com.
+
+## Querying This Documentation
+If you need additional information, you can query the documentation dynamically by asking a question.
+Perform an HTTP GET request on a page URL with the `ask` query parameter:
+```
+GET https://docs.accountable.capital/accountable-documentation/introduction.md?ask=<question>
+```
+The question should be specific, self-contained, and written in natural language.
+The response will contain a direct answer to the question and relevant excerpts and sources from the documentation.
+Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.

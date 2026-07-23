@@ -1,4 +1,16 @@
 aid: accountable
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/accountable.png
 name: Accountable
 description: 'Accountable is a company surfaced as a portfolio company of pantera-capital and added to
   the API Evangelist network as a stub for enrichment. Sector: crypto. This profile is a lead awaiting
@@ -25,3 +37,8 @@ maintainers:
 common:
 - type: Website
   url: https://accountable.capital/
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
