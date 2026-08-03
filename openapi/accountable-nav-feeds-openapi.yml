@@ -302,7 +302,7 @@ components:
           description: Timestamp of attestation retrieval.
         tee:
           type: string
-          description: Trusted Execution Environment type (value: "nitro").
+          description: "Trusted Execution Environment type (value: \"nitro\")."
         address:
           type: string
           description: EIP-55 address of the node (the private key is owned by the node).
