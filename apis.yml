@@ -28,7 +28,31 @@ modified: '2026-07-17'
 tags:
 - Company
 - Crypto
-apis: []
+apis:
+- aid: accountable:accountable-nav-api
+  name: Accountable NAV API
+  description: Net asset value per share feeds.
+  tags:
+  - NAV
+  properties:
+  - type: OpenAPI
+    url: openapi/accountable-nav-api-openapi.yml
+- aid: accountable:accountable-proof-of-reserves-api
+  name: Accountable Proof of Reserves API
+  description: Collateral and reserve breakdown feeds.
+  tags:
+  - Proof of Reserves
+  properties:
+  - type: OpenAPI
+    url: openapi/accountable-proof-of-reserves-api-openapi.yml
+- aid: accountable:accountable-redemption-api
+  name: Accountable Redemption API
+  description: On-chain redemption rate feeds.
+  tags:
+  - Redemption
+  properties:
+  - type: OpenAPI
+    url: openapi/accountable-redemption-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
