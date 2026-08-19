@@ -1,0 +1,111 @@
+openapi: 3.2.0
+info:
+  title: Accountable NAV / Feeds Proof of Reserves API
+  version: '1.1'
+  description: High-availability API providing real-time collateralization, net asset value (NAV), and redemption rate data with ripcord signalling for on-chain consumption by Chainlink. Endpoints can be queried directly from the source node and carry cryptographic guarantees (TEE attestations + HTTP Message Signatures per RFC 9421) for the integrity of the data. Accountable central nodes route to the underlying distributed network, provide fault tolerance across three clouds, and forward the cryptographic guarantees for the source data.
+  contact:
+    name: Accountable
+    url: https://docs.accountable.capital/
+  x-logo:
+    url: https://accountable.capital/favicon-light.ico
+servers:
+- url: https://{node}
+  description: 'Per-client source node in Accountable''s distributed network (example in docs: https://source.node.com). Central nodes route to the underlying network. Replace {node} with the node host provisioned at onboarding.'
+  variables:
+    node:
+      default: source.node.com
+      description: Source node host provisioned per client at onboarding.
+tags:
+- name: Proof of Reserves
+  description: Collateral and reserve breakdown feeds.
+paths:
+  /reserves:
+    get:
+      operationId: getReserves
+      summary: Proof-of-Reserves collateral breakdown by custodian
+      description: Returns the total reserve value broken down by underlying custodian or network, alongside the current collateralization ratio.
+      tags:
+      - Proof of Reserves
+      responses:
+        '200':
+          description: Current proof-of-reserves snapshot.
+          headers:
+            x-out:
+              description: SHA-256 hash of the result body (Base58).
+              schema:
+                type: string
+            x-sig:
+              description: Signature of the x-out hash (Base58).
+              schema:
+                type: string
+            x-in:
+              description: SHA-256 hash of request, input headers and input params (Base58).
+              schema:
+                type: string
+            x-iosig:
+              description: Signature of the timestamped request chain (timestamp + input hash + output hash).
+              schema:
+                type: string
+            x-ts:
+              description: Unix timestamp (milliseconds) of the server reply.
+              schema:
+                type: integer
+            Signature-Input:
+              description: RFC 9421 HTTP Message Signatures signature-input field.
+              schema:
+                type: string
+            Signature:
+              description: RFC 9421 HTTP Message Signatures signature field.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reserves'
+        '503':
+          description: Feed is stale. A protection bound was breached or the underlying data source is unavailable; no figure is published rather than a potentially misleading one.
+components:
+  schemas:
+    UnderlyingAsset:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+          description: Custodian or network identifier (e.g. "Binance", "Solana", "Copper").
+        value:
+          type: string
+          description: USD value of reserves held at this custodian or on this chain (decimal string).
+    Reserves:
+      type: object
+      required:
+      - client
+      - totalReserve
+      - totalSupply
+      - underlyingAssets
+      - collateralization
+      properties:
+        client:
+          type: string
+          description: Unique identifier for the issuer (e.g. "unitas").
+        totalReserve:
+          type: string
+          description: Total USD value of all reserves across all chains, custodians, banks, exchanges etc. (decimal string).
+        totalSupply:
+          type: string
+          description: Total token supply outstanding in USD-equivalent. Denominator for the collateralization ratio (decimal string).
+        underlyingAssets:
+          type: array
+          description: List of reserve buckets by custodian or chain.
+          items:
+            $ref: '#/components/schemas/UnderlyingAsset'
+        collateralization:
+          type: number
+          description: Ratio of totalReserve / totalSupply. 1.0 means fully backed; above 1.0 means over-collateralized.
+x-apievangelist:
+  generated: '2026-07-17'
+  method: derived
+  source: https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/nav-feeds
+  note: Derived faithfully from Accountable's published "NAV / Proof of Reserves Centralized Endpoint" documentation (Version 1.1, March 2026). Field names, types, and descriptions are taken verbatim from the docs. No values were fabricated. The API is served from Accountable's distributed node infrastructure (per-client source nodes routed by central nodes across AWS, Google Cloud and Azure); the public base host is per-deployment, so the server below is templated.

@@ -1,0 +1,142 @@
+openapi: 3.2.0
+info:
+  title: Accountable / Proof of Reserves Feeds NAV API
+  version: '1.1'
+  description: High-availability API providing real-time collateralization, net asset value (NAV), and redemption rate data with ripcord signalling for on-chain consumption by Chainlink. Endpoints can be queried directly from the source node and carry cryptographic guarantees (TEE attestations + HTTP Message Signatures per RFC 9421) for the integrity of the data. Accountable central nodes route to the underlying distributed network, provide fault tolerance across three clouds, and forward the cryptographic guarantees for the source data.
+  contact:
+    name: Accountable
+    url: https://docs.accountable.capital/
+  x-logo:
+    url: https://accountable.capital/favicon-light.ico
+servers:
+- url: https://{node}
+  description: 'Per-client source node in Accountable''s distributed network (example in docs: https://source.node.com). Central nodes route to the underlying network. Replace {node} with the node host provisioned at onboarding.'
+  variables:
+    node:
+      default: source.node.com
+      description: Source node host provisioned per client at onboarding.
+tags:
+- name: NAV
+  description: Net asset value per share feeds.
+paths:
+  /nav:
+    get:
+      operationId: getNav
+      summary: NAV per share feed
+      description: Returns the Net Asset Value per share alongside fund-level metrics and ripcord status.
+      tags:
+      - NAV
+      responses:
+        '200':
+          description: Current NAV snapshot.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Nav'
+        '503':
+          description: Feed is stale (protection bound breached or source unavailable).
+components:
+  schemas:
+    Nav:
+      type: object
+      required:
+      - client
+      - net_asset_value
+      - mark
+      - asset_under_management
+      - outstanding_shares
+      - min_rate
+      - max_rate
+      - updatedAt
+      - ripcord
+      - ripcordDetails
+      properties:
+        client:
+          type: string
+          description: Unique identifier for the issuer (e.g. "unitas").
+        net_asset_value:
+          type: string
+          description: NAV per share as a high-precision decimal string. Field name per Chainlink specification; the actual semantic is nav_per_share.
+        mark:
+          type: string
+          description: Collateralization mark (1 if over-collateralized, NAV per share value otherwise).
+        asset_under_management:
+          type: string
+          description: Total USD value of assets under management (decimal string).
+        outstanding_shares:
+          type: string
+          description: Total shares or outstanding token supply (decimal string).
+        min_rate:
+          type: number
+          description: Circuit-breaker lower bound for the NAV per share (e.g. 0.98). Feed goes stale if breached.
+        max_rate:
+          type: number
+          description: Circuit-breaker upper bound for the NAV per share (e.g. 1.05). Feed goes stale if breached.
+        updatedAt:
+          type: string
+          format: date-time
+          description: UTC timestamp of the last successful data refresh from the underlying custodian data source.
+        ripcord:
+          type: boolean
+          description: true if one or more ripcord conditions are active. When true, on-chain updates must be halted.
+        ripcordDetails:
+          type: array
+          items:
+            type: string
+          description: List of active ripcord category codes. Empty array when ripcord is false.
+        source:
+          $ref: '#/components/schemas/SourceAttestation'
+    SourceAttestation:
+      type: object
+      description: TEE attestation from the source node. Accountable supports SGX, Nitro, SEV and TDX secure enclaves; the Nitro (AWS Nitro Enclaves) structure is described here.
+      properties:
+        attestation:
+          type: string
+          description: Base64-encoded attestation document containing the complete cryptographic proof.
+        pcr0:
+          type: string
+          description: Platform Configuration Register 0 - Enclave image measurement (hex).
+        pcr1:
+          type: string
+          description: Platform Configuration Register 1 - Kernel and boot measurement (hex).
+        pcr2:
+          type: string
+          description: Platform Configuration Register 2 - Application binary measurement (hex).
+        pcr8:
+          type: string
+          description: Platform Configuration Register 8 - Certificate chain measurement (hex).
+        signature:
+          type: string
+          description: Cryptographic signature validating the attestation.
+        user_data:
+          type: string
+          description: Base64-encoded user-specific metadata.
+        user_data_hash:
+          type: string
+          description: SHA-256 hash of user data for verification.
+        module_id:
+          type: string
+          description: Unique identifier for the Nitro Enclave instance.
+        digest:
+          type: string
+          description: Hashing algorithm used (e.g. "SHA384").
+        timestamp:
+          type: string
+          description: Unix timestamp (milliseconds) of attestation generation.
+        pubKey:
+          type: string
+          description: Public key for attestation verification.
+        ts:
+          type: number
+          description: Timestamp of attestation retrieval.
+        tee:
+          type: string
+          description: 'Trusted Execution Environment type (value: "nitro").'
+        address:
+          type: string
+          description: EIP-55 address of the node (the private key is owned by the node).
+x-apievangelist:
+  generated: '2026-07-17'
+  method: derived
+  source: https://docs.accountable.capital/accountable-documentation/data-verification-network-dvn/nav-feeds
+  note: Derived faithfully from Accountable's published "NAV / Proof of Reserves Centralized Endpoint" documentation (Version 1.1, March 2026). Field names, types, and descriptions are taken verbatim from the docs. No values were fabricated. The API is served from Accountable's distributed node infrastructure (per-client source nodes routed by central nodes across AWS, Google Cloud and Azure); the public base host is per-deployment, so the server below is templated.

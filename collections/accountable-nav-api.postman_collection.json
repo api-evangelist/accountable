@@ -1,0 +1,161 @@
+{
+  "item": [
+    {
+      "id": "cbda5293-9674-425e-897c-915d26479685",
+      "name": "NAV",
+      "description": {
+        "content": "Net asset value per share feeds.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d9eeaee1-9d59-4ef5-aa26-082a8563b5e9",
+          "name": "NAV per share feed",
+          "request": {
+            "name": "NAV per share feed",
+            "description": {
+              "content": "Returns the Net Asset Value per share alongside fund-level metrics and ripcord status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nav"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Source node host provisioned per client at onboarding.",
+                  "type": "any",
+                  "value": "{{node}}",
+                  "key": "node"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9bff1c1-a5d7-4613-b855-eb0ae0d55f7e",
+              "name": "Current NAV snapshot.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nav"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Source node host provisioned per client at onboarding.",
+                      "type": "any",
+                      "value": "{{node}}",
+                      "key": "node"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client\": \"string\",\n  \"net_asset_value\": \"string\",\n  \"mark\": \"string\",\n  \"asset_under_management\": \"string\",\n  \"outstanding_shares\": \"string\",\n  \"min_rate\": 9452.631049616472,\n  \"max_rate\": 9773.147633347176,\n  \"updatedAt\": \"1991-09-04T20:34:50.646Z\",\n  \"ripcord\": false,\n  \"ripcordDetails\": [\n    \"string\",\n    \"string\"\n  ],\n  \"source\": {\n    \"attestation\": \"string\",\n    \"pcr0\": \"string\",\n    \"pcr1\": \"string\",\n    \"pcr2\": \"string\",\n    \"pcr8\": \"string\",\n    \"signature\": \"string\",\n    \"user_data\": \"string\",\n    \"user_data_hash\": \"string\",\n    \"module_id\": \"string\",\n    \"digest\": \"string\",\n    \"timestamp\": \"string\",\n    \"pubKey\": \"string\",\n    \"ts\": 5142.189825033819,\n    \"tee\": \"string\",\n    \"address\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6799729-8136-4cee-acda-09dde5dbfb92",
+              "name": "Feed is stale (protection bound breached or source unavailable).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nav"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Source node host provisioned per client at onboarding.",
+                      "type": "any",
+                      "value": "{{node}}",
+                      "key": "node"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Source node host provisioned per client at onboarding.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "source.node.com",
+      "key": "node"
+    },
+    {
+      "type": "string",
+      "value": "https://{{node}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ed618ea6-63ad-4f96-a9b6-9c5d5b8d7d39",
+    "name": "Accountable / Proof of Reserves Feeds NAV API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "High-availability API providing real-time collateralization, net asset value (NAV), and redemption rate data with ripcord signalling for on-chain consumption by Chainlink. Endpoints can be queried directly from the source node and carry cryptographic guarantees (TEE attestations + HTTP Message Signatures per RFC 9421) for the integrity of the data. Accountable central nodes route to the underlying distributed network, provide fault tolerance across three clouds, and forward the cryptographic guarantees for the source data.\n\nContact Support:\n Name: Accountable",
+      "type": "text/plain"
+    }
+  }
+}

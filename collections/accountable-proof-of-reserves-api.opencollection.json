@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Accountable NAV / Feeds Proof of Reserves API",
+    "version": "1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Proof of Reserves",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Proof-of-Reserves collateral breakdown by custodian",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{node}/reserves"
+          },
+          "docs": "Returns the total reserve value broken down by underlying custodian or network, alongside the current collateralization ratio."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,203 @@
+{
+  "item": [
+    {
+      "id": "b4c1b9ec-e82b-4020-9e01-cb2709c08e73",
+      "name": "Proof of Reserves",
+      "description": {
+        "content": "Collateral and reserve breakdown feeds.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64f2fba8-fa40-4b5d-8dc4-47a6a97f8b39",
+          "name": "Proof-of-Reserves collateral breakdown by custodian",
+          "request": {
+            "name": "Proof-of-Reserves collateral breakdown by custodian",
+            "description": {
+              "content": "Returns the total reserve value broken down by underlying custodian or network, alongside the current collateralization ratio.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reserves"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Source node host provisioned per client at onboarding.",
+                  "type": "any",
+                  "value": "{{node}}",
+                  "key": "node"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab292435-3efe-4809-a1f0-1680a610974c",
+              "name": "Current proof-of-reserves snapshot.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reserves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Source node host provisioned per client at onboarding.",
+                      "type": "any",
+                      "value": "{{node}}",
+                      "key": "node"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "SHA-256 hash of the result body (Base58).",
+                  "key": "x-out",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "Signature of the x-out hash (Base58).",
+                  "key": "x-sig",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "SHA-256 hash of request, input headers and input params (Base58).",
+                  "key": "x-in",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "Signature of the timestamped request chain (timestamp + input hash + output hash).",
+                  "key": "x-iosig",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "Unix timestamp (milliseconds) of the server reply.",
+                  "key": "x-ts",
+                  "value": "2587"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC 9421 HTTP Message Signatures signature-input field.",
+                  "key": "Signature-Input",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC 9421 HTTP Message Signatures signature field.",
+                  "key": "Signature",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"client\": \"string\",\n  \"totalReserve\": \"string\",\n  \"totalSupply\": \"string\",\n  \"underlyingAssets\": [\n    {\n      \"name\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"collateralization\": 274.99533639340547\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b37070e2-2b07-48b5-a24f-e1eb5dbaaac5",
+              "name": "Feed is stale. A protection bound was breached or the underlying data source is unavailable; no figure is published rather than a potentially misleading one.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reserves"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Source node host provisioned per client at onboarding.",
+                      "type": "any",
+                      "value": "{{node}}",
+                      "key": "node"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Source node host provisioned per client at onboarding.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "source.node.com",
+      "key": "node"
+    },
+    {
+      "type": "string",
+      "value": "https://{{node}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7d19ff0f-0f41-44d0-a1dd-c92c6c1c2950",
+    "name": "Accountable NAV / Feeds Proof of Reserves API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "High-availability API providing real-time collateralization, net asset value (NAV), and redemption rate data with ripcord signalling for on-chain consumption by Chainlink. Endpoints can be queried directly from the source node and carry cryptographic guarantees (TEE attestations + HTTP Message Signatures per RFC 9421) for the integrity of the data. Accountable central nodes route to the underlying distributed network, provide fault tolerance across three clouds, and forward the cryptographic guarantees for the source data.\n\nContact Support:\n Name: Accountable",
+      "type": "text/plain"
+    }
+  }
+}

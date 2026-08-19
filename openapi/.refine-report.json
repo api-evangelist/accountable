@@ -1,0 +1,23 @@
+{
+  "provider": "accountable",
+  "sources": [
+    "accountable-nav-api-openapi.yml",
+    "accountable-proof-of-reserves-api-openapi.yml",
+    "accountable-redemption-api-openapi.yml"
+  ],
+  "outputs": [
+    "accountable-nav-api-openapi.yml",
+    "accountable-proof-of-reserves-api-openapi.yml",
+    "accountable-redemption-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "accountable-nav-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "accountable-proof-of-reserves-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "accountable-redemption-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}
