@@ -49,6 +49,8 @@ apis:
   name: Accountable Redemption API
   description: On-chain redemption rate feeds.
   tags:
+  - Redemptions
+  tags_raw:
   - Redemption
   properties:
   - type: OpenAPI
