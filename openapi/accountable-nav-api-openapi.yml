@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Accountable / Proof of Reserves Feeds NAV API
   version: '1.1'
-  description: High-availability API providing real-time collateralization, net asset value (NAV), and redemption rate data with ripcord signalling for on-chain consumption by Chainlink. Endpoints can be queried directly from the source node and carry cryptographic guarantees (TEE attestations + HTTP Message Signatures per RFC 9421) for the integrity of the data. Accountable central nodes route to the underlying distributed network, provide fault tolerance across three clouds, and forward the cryptographic guarantees for the source data.
+  description: High-availability API providing real-time collateralization, net asset value (NAV), and redemption rate data with ripcord signalling for on-chain consumption by Chainlink.
   contact:
     name: Accountable
     url: https://docs.accountable.capital/

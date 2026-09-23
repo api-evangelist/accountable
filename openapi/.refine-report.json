@@ -1,9 +1,7 @@
 {
   "provider": "accountable",
   "sources": [
-    "accountable-nav-api-openapi.yml",
-    "accountable-proof-of-reserves-api-openapi.yml",
-    "accountable-redemption-api-openapi.yml"
+    "_original/accountable-nav-feeds-openapi.yml"
   ],
   "outputs": [
     "accountable-nav-api-openapi.yml",
@@ -14,10 +12,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "accountable-nav-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "accountable-proof-of-reserves-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "accountable-redemption-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "accountable-nav-feeds-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "accountable-nav-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accountable-proof-of-reserves-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accountable-redemption-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

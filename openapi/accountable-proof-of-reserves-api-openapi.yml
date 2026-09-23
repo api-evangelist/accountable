@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Accountable NAV / Feeds Proof of Reserves API
   version: '1.1'
-  description: High-availability API providing real-time collateralization, net asset value (NAV), and redemption rate data with ripcord signalling for on-chain consumption by Chainlink. Endpoints can be queried directly from the source node and carry cryptographic guarantees (TEE attestations + HTTP Message Signatures per RFC 9421) for the integrity of the data. Accountable central nodes route to the underlying distributed network, provide fault tolerance across three clouds, and forward the cryptographic guarantees for the source data.
+  description: High-availability API providing real-time collateralization, net asset value (NAV), and redemption rate data with ripcord signalling for on-chain consumption by Chainlink.
   contact:
     name: Accountable
     url: https://docs.accountable.capital/
@@ -66,18 +66,6 @@ paths:
           description: Feed is stale. A protection bound was breached or the underlying data source is unavailable; no figure is published rather than a potentially misleading one.
 components:
   schemas:
-    UnderlyingAsset:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          type: string
-          description: Custodian or network identifier (e.g. "Binance", "Solana", "Copper").
-        value:
-          type: string
-          description: USD value of reserves held at this custodian or on this chain (decimal string).
     Reserves:
       type: object
       required:
@@ -104,6 +92,18 @@ components:
         collateralization:
           type: number
           description: Ratio of totalReserve / totalSupply. 1.0 means fully backed; above 1.0 means over-collateralized.
+    UnderlyingAsset:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+          description: Custodian or network identifier (e.g. "Binance", "Solana", "Copper").
+        value:
+          type: string
+          description: USD value of reserves held at this custodian or on this chain (decimal string).
 x-apievangelist:
   generated: '2026-07-17'
   method: derived
