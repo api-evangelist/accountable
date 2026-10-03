@@ -66,6 +66,18 @@ paths:
           description: Feed is stale. A protection bound was breached or the underlying data source is unavailable; no figure is published rather than a potentially misleading one.
 components:
   schemas:
+    UnderlyingAsset:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          type: string
+          description: Custodian or network identifier (e.g. "Binance", "Solana", "Copper").
+        value:
+          type: string
+          description: USD value of reserves held at this custodian or on this chain (decimal string).
     Reserves:
       type: object
       required:
@@ -92,18 +104,6 @@ components:
         collateralization:
           type: number
           description: Ratio of totalReserve / totalSupply. 1.0 means fully backed; above 1.0 means over-collateralized.
-    UnderlyingAsset:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          type: string
-          description: Custodian or network identifier (e.g. "Binance", "Solana", "Copper").
-        value:
-          type: string
-          description: USD value of reserves held at this custodian or on this chain (decimal string).
 x-apievangelist:
   generated: '2026-07-17'
   method: derived
