@@ -37,55 +37,6 @@ paths:
           description: Feed is stale (protection bound breached or source unavailable).
 components:
   schemas:
-    Nav:
-      type: object
-      required:
-      - client
-      - net_asset_value
-      - mark
-      - asset_under_management
-      - outstanding_shares
-      - min_rate
-      - max_rate
-      - updatedAt
-      - ripcord
-      - ripcordDetails
-      properties:
-        client:
-          type: string
-          description: Unique identifier for the issuer (e.g. "unitas").
-        net_asset_value:
-          type: string
-          description: NAV per share as a high-precision decimal string. Field name per Chainlink specification; the actual semantic is nav_per_share.
-        mark:
-          type: string
-          description: Collateralization mark (1 if over-collateralized, NAV per share value otherwise).
-        asset_under_management:
-          type: string
-          description: Total USD value of assets under management (decimal string).
-        outstanding_shares:
-          type: string
-          description: Total shares or outstanding token supply (decimal string).
-        min_rate:
-          type: number
-          description: Circuit-breaker lower bound for the NAV per share (e.g. 0.98). Feed goes stale if breached.
-        max_rate:
-          type: number
-          description: Circuit-breaker upper bound for the NAV per share (e.g. 1.05). Feed goes stale if breached.
-        updatedAt:
-          type: string
-          format: date-time
-          description: UTC timestamp of the last successful data refresh from the underlying custodian data source.
-        ripcord:
-          type: boolean
-          description: true if one or more ripcord conditions are active. When true, on-chain updates must be halted.
-        ripcordDetails:
-          type: array
-          items:
-            type: string
-          description: List of active ripcord category codes. Empty array when ripcord is false.
-        source:
-          $ref: '#/components/schemas/SourceAttestation'
     SourceAttestation:
       type: object
       description: TEE attestation from the source node. Accountable supports SGX, Nitro, SEV and TDX secure enclaves; the Nitro (AWS Nitro Enclaves) structure is described here.
@@ -135,6 +86,55 @@ components:
         address:
           type: string
           description: EIP-55 address of the node (the private key is owned by the node).
+    Nav:
+      type: object
+      required:
+      - client
+      - net_asset_value
+      - mark
+      - asset_under_management
+      - outstanding_shares
+      - min_rate
+      - max_rate
+      - updatedAt
+      - ripcord
+      - ripcordDetails
+      properties:
+        client:
+          type: string
+          description: Unique identifier for the issuer (e.g. "unitas").
+        net_asset_value:
+          type: string
+          description: NAV per share as a high-precision decimal string. Field name per Chainlink specification; the actual semantic is nav_per_share.
+        mark:
+          type: string
+          description: Collateralization mark (1 if over-collateralized, NAV per share value otherwise).
+        asset_under_management:
+          type: string
+          description: Total USD value of assets under management (decimal string).
+        outstanding_shares:
+          type: string
+          description: Total shares or outstanding token supply (decimal string).
+        min_rate:
+          type: number
+          description: Circuit-breaker lower bound for the NAV per share (e.g. 0.98). Feed goes stale if breached.
+        max_rate:
+          type: number
+          description: Circuit-breaker upper bound for the NAV per share (e.g. 1.05). Feed goes stale if breached.
+        updatedAt:
+          type: string
+          format: date-time
+          description: UTC timestamp of the last successful data refresh from the underlying custodian data source.
+        ripcord:
+          type: boolean
+          description: true if one or more ripcord conditions are active. When true, on-chain updates must be halted.
+        ripcordDetails:
+          type: array
+          items:
+            type: string
+          description: List of active ripcord category codes. Empty array when ripcord is false.
+        source:
+          $ref: '#/components/schemas/SourceAttestation'
 x-apievangelist:
   generated: '2026-07-17'
   method: derived
