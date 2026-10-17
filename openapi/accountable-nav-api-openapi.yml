@@ -37,55 +37,6 @@ paths:
           description: Feed is stale (protection bound breached or source unavailable).
 components:
   schemas:
-    SourceAttestation:
-      type: object
-      description: TEE attestation from the source node. Accountable supports SGX, Nitro, SEV and TDX secure enclaves; the Nitro (AWS Nitro Enclaves) structure is described here.
-      properties:
-        attestation:
-          type: string
-          description: Base64-encoded attestation document containing the complete cryptographic proof.
-        pcr0:
-          type: string
-          description: Platform Configuration Register 0 - Enclave image measurement (hex).
-        pcr1:
-          type: string
-          description: Platform Configuration Register 1 - Kernel and boot measurement (hex).
-        pcr2:
-          type: string
-          description: Platform Configuration Register 2 - Application binary measurement (hex).
-        pcr8:
-          type: string
-          description: Platform Configuration Register 8 - Certificate chain measurement (hex).
-        signature:
-          type: string
-          description: Cryptographic signature validating the attestation.
-        user_data:
-          type: string
-          description: Base64-encoded user-specific metadata.
-        user_data_hash:
-          type: string
-          description: SHA-256 hash of user data for verification.
-        module_id:
-          type: string
-          description: Unique identifier for the Nitro Enclave instance.
-        digest:
-          type: string
-          description: Hashing algorithm used (e.g. "SHA384").
-        timestamp:
-          type: string
-          description: Unix timestamp (milliseconds) of attestation generation.
-        pubKey:
-          type: string
-          description: Public key for attestation verification.
-        ts:
-          type: number
-          description: Timestamp of attestation retrieval.
-        tee:
-          type: string
-          description: 'Trusted Execution Environment type (value: "nitro").'
-        address:
-          type: string
-          description: EIP-55 address of the node (the private key is owned by the node).
     Nav:
       type: object
       required:
@@ -135,6 +86,55 @@ components:
           description: List of active ripcord category codes. Empty array when ripcord is false.
         source:
           $ref: '#/components/schemas/SourceAttestation'
+    SourceAttestation:
+      type: object
+      description: TEE attestation from the source node. Accountable supports SGX, Nitro, SEV and TDX secure enclaves; the Nitro (AWS Nitro Enclaves) structure is described here.
+      properties:
+        attestation:
+          type: string
+          description: Base64-encoded attestation document containing the complete cryptographic proof.
+        pcr0:
+          type: string
+          description: Platform Configuration Register 0 - Enclave image measurement (hex).
+        pcr1:
+          type: string
+          description: Platform Configuration Register 1 - Kernel and boot measurement (hex).
+        pcr2:
+          type: string
+          description: Platform Configuration Register 2 - Application binary measurement (hex).
+        pcr8:
+          type: string
+          description: Platform Configuration Register 8 - Certificate chain measurement (hex).
+        signature:
+          type: string
+          description: Cryptographic signature validating the attestation.
+        user_data:
+          type: string
+          description: Base64-encoded user-specific metadata.
+        user_data_hash:
+          type: string
+          description: SHA-256 hash of user data for verification.
+        module_id:
+          type: string
+          description: Unique identifier for the Nitro Enclave instance.
+        digest:
+          type: string
+          description: Hashing algorithm used (e.g. "SHA384").
+        timestamp:
+          type: string
+          description: Unix timestamp (milliseconds) of attestation generation.
+        pubKey:
+          type: string
+          description: Public key for attestation verification.
+        ts:
+          type: number
+          description: Timestamp of attestation retrieval.
+        tee:
+          type: string
+          description: 'Trusted Execution Environment type (value: "nitro").'
+        address:
+          type: string
+          description: EIP-55 address of the node (the private key is owned by the node).
 x-apievangelist:
   generated: '2026-07-17'
   method: derived
